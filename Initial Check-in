@@ -1,0 +1,67 @@
+/* VARIABLES */
+let eyeWidth = 50;
+let eyeHeight = 40;
+let pupilWidth = 22;
+let pupilHeight = 25;
+
+/* SETUP RUNS ONCE */
+function setup() {
+  //sets the screen size
+  createCanvas(400,400); 
+
+  //sets the background color
+  background(204,255,255); 
+}
+
+/* DRAW LOOP REPEATS */
+function draw() {
+  angleMode(DEGREES);
+  rectMode(CENTER);
+
+  //Face
+  fill(253,216,178);
+  ellipse(width/2,height/2,175,200);
+
+  //nose
+  triangle(190,220,200,200,210,220);
+
+  //Interaction
+  if (mouseIsPressed) {
+    //eyes closed
+    fill(0);
+    ellipse(170,170,eyeWidth,eyeHeight/8);
+    ellipse(230,170,eyeWidth,eyeHeight/8);
+    //mouth
+    fill(255,255,255);
+    arc(200,230,50,50,0,180);
+  } else {
+    //eyes open
+      fill(153,102,0);
+      ellipse(170,170,eyeWidth,eyeHeight);
+      ellipse(230,170,eyeWidth,eyeHeight);
+    //Pupils
+      fill(0,0,0);
+      ellipse(170,170,pupilWidth,pupilHeight);
+      ellipse(230,170,pupilWidth,pupilHeight);
+    //light on pupils
+      fill(255,255,255);
+      ellipse(177,162,10,10);
+      ellipse(237,162,10,10);
+    //mouth
+      fill(255,153,153);
+      arc(200,230,50,50,0,180);
+  }
+
+  //Hair
+  fill(0);
+  rect(120,230,30,180);
+  rect(280,230,30,180);
+  arc(200,140,190,170,180,360);
+  
+  //Text
+  textSize(15);
+  fill(204,0,204);
+  text("Always be yourself, \nAlways support yourself, \nAlways enjoy yourself!",20,20);
+
+  text("Click to see \nme blink and \nsmile!",300,350);
+}
